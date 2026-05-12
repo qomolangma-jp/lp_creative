@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROJECT LAUNCH EVENT | プログラミング＆AI体験キックオフ</title>
+    <title>高校生 地域課題解決プロジェクト | キックオフイベント</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Icons -->
@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -23,11 +23,12 @@
                     },
                     colors: {
                         brand: {
-                            blue: '#0a2e5c',
-                            lightblue: '#00c3ff',
-                            teal: '#14b8a6',
-                            green: '#34d399',
-                            yellow: '#fcd34d',
+                            navy: '#1e3a8a',    /* チラシのメインブルー */
+                            green: '#16a34a',   /* チラシのメーングリーン */
+                            lightgreen: '#dcfce7',
+                            lightblue: '#e0f2fe',
+                            yellow: '#fef08a',
+                            gray: '#f3f4f6',
                         }
                     }
                 }
@@ -35,154 +36,100 @@
         }
     </script>
     <style>
-        /* カスタムスタイル */
         body {
-            background-color: #f0f8ff; /* 非常に薄い青を背景に */
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(0, 195, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(52, 211, 153, 0.05) 0%, transparent 50%);
             overflow-x: hidden;
+            background-color: #fafafa;
         }
-
-        /* ポスター風のタイトル装飾 */
-        .poster-title {
-            color: #0a2e5c;
-            -webkit-text-stroke: 2px #00c3ff;
-            text-shadow: 0px 4px 15px rgba(0, 195, 255, 0.4);
-            letter-spacing: 0.05em;
+        /* ドット背景パターン */
+        .dot-bg {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
         }
+        /* スムーススクロール */
+        html { scroll-behavior: smooth; }
         
-        @media (max-width: 768px) {
-            .poster-title {
-                -webkit-text-stroke: 1px #00c3ff;
-            }
-        }
-
-        /* 回路風の背景パターン */
-        .circuit-bg {
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 h 20 v 20 h 20' fill='none' stroke='rgba(0,195,255,0.2)' stroke-width='2'/%3E%3Ccircle cx='50' cy='30' r='3' fill='rgba(0,195,255,0.2)'/%3E%3Cpath d='M90 90 h -20 v -20 h -20' fill='none' stroke='rgba(52,211,153,0.2)' stroke-width='2'/%3E%3Ccircle cx='50' cy='70' r='3' fill='rgba(52,211,153,0.2)'/%3E%3C/svg%3E");
-            background-size: 150px 150px;
-        }
-
-        /* 六角形カードのシェイプ */
-        .hex-wrapper {
-            filter: drop-shadow(0px 8px 16px rgba(0,0,0,0.1));
-            transition: transform 0.3s ease;
-        }
-        .hex-wrapper:hover {
-            transform: translateY(-5px);
-        }
-        .hex-shape {
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-        }
-
-        /* ふわふわ浮遊アニメーション */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        .animate-float-delayed {
-            animation: float 6s ease-in-out 3s infinite;
-        }
+        /* テキストの自動折り返し調整（スマホ用） */
+        .auto-phrase { word-break: auto-phrase; }
     </style>
 </head>
-<body class="text-gray-800 antialiased relative">
-
-    <!-- 背景の装飾オブジェクト -->
-    <div class="fixed top-20 left-10 w-24 h-24 rounded-full border-4 border-brand-lightblue/20 animate-float z-0 pointer-events-none hidden sm:block"></div>
-    <div class="fixed bottom-40 right-10 w-32 h-32 rounded-full border-4 border-brand-green/20 animate-float-delayed z-0 pointer-events-none hidden sm:block"></div>
-    <div class="fixed top-1/2 left-4 sm:left-1/4 w-4 h-4 bg-brand-yellow/40 rounded-full z-0 pointer-events-none"></div>
-    <div class="fixed top-1/3 right-4 sm:right-1/4 w-6 h-6 bg-brand-lightblue/40 rounded-full z-0 pointer-events-none"></div>
+<body class="text-gray-800 antialiased font-sans break-words selection:bg-brand-green selection:text-white">
 
     <!-- ===== ヘッダー / ヒーローセクション ===== -->
-    <header class="relative pt-8 sm:pt-12 pb-16 sm:pb-20 px-4 circuit-bg min-h-[90vh] flex flex-col items-center justify-center overflow-hidden z-10">
-        
-        <div class="max-w-5xl mx-auto w-full text-center relative z-10 mt-10 sm:mt-0">
-            <!-- サブタイトル -->
-            <p class="font-bold text-brand-blue text-sm sm:text-base md:text-xl tracking-wider mb-2 bg-white/90 inline-block px-3 sm:px-4 py-1 rounded-full border border-brand-lightblue/30 shadow-sm mx-auto max-w-[95%]">
-                市内6高校生限定！テックガレージ（仮）キックオフ
-            </p>
+    <header class="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden dot-bg">
+        <!-- アクセント図形 -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-lightgreen rounded-bl-full opacity-50 -z-10"></div>
+        <div class="absolute bottom-0 left-0 w-48 h-48 bg-brand-lightblue rounded-tr-full opacity-50 -z-10"></div>
 
-            <!-- メインタイトル -->
-            <h1 class="font-title italic font-black text-5xl sm:text-6xl md:text-8xl lg:text-9xl leading-tight sm:leading-none mt-4 mb-6 sm:mb-8 poster-title transform -skew-x-6">
-                PROJECT<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400" style="-webkit-text-stroke: 0; text-shadow: none;">LAUNCH EVENT</span>
-            </h1>
-
-            <!-- キャッチコピーエリア -->
-            <div class="mt-4 sm:mt-8 mb-8 sm:mb-12 relative inline-block max-w-[95%]">
-                <div class="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-cyan-300 to-emerald-300 rounded-2xl blur sm:blur-lg opacity-50"></div>
-                <div class="relative bg-white border-2 border-brand-lightblue px-4 py-4 sm:px-8 sm:py-6 rounded-2xl shadow-xl transform rotate-1">
-                    <h2 class="text-[1.2rem] sm:text-2xl md:text-3xl lg:text-4xl font-black text-brand-blue leading-snug sm:leading-tight">
-                        学校の壁を越えて、<br class="block sm:hidden"><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">新しいモノを創り出そう！</span><br>
-                        地域の課題解決や小中学生の<br class="block sm:hidden">『学び』をリードする<br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-400">未体験のワクワク</span>を！
-                    </h2>
-                    <p class="text-right mt-2 text-gray-400 font-title font-bold text-xs sm:text-sm tracking-widest">Komatsu City</p>
-                </div>
+        <div class="max-w-4xl mx-auto w-full text-center relative z-10 mt-4 sm:mt-8">
+            <!-- 上部バッジ -->
+            <div class="inline-flex items-center justify-center bg-brand-green text-white font-bold text-[11px] sm:text-sm px-4 sm:px-6 py-1.5 sm:py-2 rounded-full mb-6 shadow-md max-w-full">
+                <i class="far fa-lightbulb text-yellow-300 mr-2"></i>
+                <span class="truncate">小松市内高校生限定！</span>
             </div>
 
-            <!-- 参加対象高校バッジ -->
-            <div class="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-8 max-w-2xl mx-auto px-2">
-                <span class="text-[10px] sm:text-xs font-bold bg-brand-blue/10 text-brand-blue px-2 py-1 sm:px-3 sm:py-1 rounded-full border border-brand-blue/20 whitespace-nowrap">小松高校</span>
-                <span class="text-[10px] sm:text-xs font-bold bg-brand-blue/10 text-brand-blue px-2 py-1 sm:px-3 sm:py-1 rounded-full border border-brand-blue/20 whitespace-nowrap">小松商業高校</span>
-                <span class="text-[10px] sm:text-xs font-bold bg-brand-blue/10 text-brand-blue px-2 py-1 sm:px-3 sm:py-1 rounded-full border border-brand-blue/20 whitespace-nowrap">小松工業高校</span>
-                <span class="text-[10px] sm:text-xs font-bold bg-brand-blue/10 text-brand-blue px-2 py-1 sm:px-3 sm:py-1 rounded-full border border-brand-blue/20 whitespace-nowrap">明峰高校</span>
-                <span class="text-[10px] sm:text-xs font-bold bg-brand-blue/10 text-brand-blue px-2 py-1 sm:px-3 sm:py-1 rounded-full border border-brand-blue/20 whitespace-nowrap">小松市立高校</span>
-                <span class="text-[10px] sm:text-xs font-bold bg-brand-blue/10 text-brand-blue px-2 py-1 sm:px-3 sm:py-1 rounded-full border border-brand-blue/20 whitespace-nowrap">大谷高校</span>
+            <!-- メインタイトル -->
+            <h1 class="font-black mb-6 leading-tight">
+                <span class="block text-brand-navy text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-2 sm:mb-4 auto-phrase">プログラミング＆AI体験</span>
+                <span class="block text-brand-green text-3xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 tracking-tight">キックオフイベント</span>
+            </h1>
+
+            <!-- サブコピー -->
+            <div class="max-w-2xl mx-auto bg-white/80 backdrop-blur border border-gray-200 p-4 sm:p-6 rounded-2xl shadow-sm mb-8 sm:mb-10">
+                <p class="text-sm sm:text-base md:text-lg font-bold text-gray-700 leading-relaxed text-left sm:text-center">
+                    学校の壁を越えて、新しいモノを創り出そう！<br class="hidden sm:block">
+                    地域の課題解決や小中学生の『学び』をリードする<br class="hidden sm:block">
+                    未体験のワクワクをその手に！
+                </p>
             </div>
 
             <!-- CTAボタン -->
-            <div class="mt-4">
-                <a href="#apply" class="group relative inline-flex items-center justify-center px-8 py-4 sm:px-10 sm:py-5 font-bold text-white transition-all duration-200 bg-gradient-to-r from-cyan-500 to-emerald-500 font-title text-lg sm:text-xl rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(20,184,166,0.5)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 w-[90%] sm:w-auto">
+            <div>
+                <a href="#apply" class="group relative inline-flex items-center justify-center px-6 py-4 sm:px-10 sm:py-5 font-bold text-white transition-all duration-300 bg-brand-navy rounded-full hover:bg-blue-800 hover:shadow-lg hover:-translate-y-1 w-[95%] sm:w-auto text-base sm:text-lg">
                     <span class="mr-2">ENTRY NOW</span>
-                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    <i class="fas fa-chevron-right text-sm transition-transform group-hover:translate-x-1"></i>
                 </a>
-                <p class="mt-3 text-xs sm:text-sm font-bold text-brand-blue">※参加費無料 / 事前申込制</p>
             </div>
         </div>
     </header>
 
-    <!-- ===== ABOUT セクション ===== -->
-    <section class="py-12 sm:py-16 bg-brand-blue text-white relative z-10">
-        <div class="max-w-5xl mx-auto px-4">
+    <!-- ===== セクション1: めざすこと ===== -->
+    <section class="py-12 sm:py-16 bg-brand-navy text-white px-4 relative">
+        <div class="max-w-5xl mx-auto">
             <div class="text-center mb-8 sm:mb-12">
-                <h2 class="font-title text-2xl sm:text-3xl font-bold text-brand-lightblue tracking-wider mb-2">WHAT WE DO?</h2>
-                <p class="text-base sm:text-lg font-bold">この集まりで何をするの？なぜやるの？</p>
+                <h2 class="inline-block bg-white text-brand-navy font-bold text-lg sm:text-2xl px-6 py-2 rounded-lg shadow-md border-b-4 border-brand-green">
+                    WHAT WE DO?
+                </h2>
+                <p class="mt-4 text-sm sm:text-base font-bold">この集まりで何をするの？なぜやるの？</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-                <!-- Point 1 -->
-                <div class="bg-white/10 p-5 sm:p-6 rounded-2xl border border-white/20 backdrop-blur-sm">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-cyan-500 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-handshake text-lg sm:text-xl"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                <!-- 1 -->
+                <div class="bg-white text-gray-800 p-6 rounded-2xl shadow-lg border-t-8 border-brand-lightgreen flex flex-col items-center text-center">
+                    <h3 class="text-brand-green font-bold text-lg sm:text-xl mb-4 leading-snug">学校の壁を<br>なくす</h3>
+                    <div class="w-16 h-16 bg-brand-lightgreen rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-handshake text-2xl text-brand-green"></i>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">学校の壁をなくす</h3>
-                    <p class="text-xs sm:text-sm text-cyan-50 leading-relaxed">
+                    <p class="text-sm font-medium leading-relaxed">
                         市内のいろんな高校の生徒が集まるクラブ活動。異なる個性やアイデアを組み合わせることで、一人では作れない新しいものを生み出す風土を作ります。
                     </p>
                 </div>
-                <!-- Point 2 -->
-                <div class="bg-white/10 p-5 sm:p-6 rounded-2xl border border-white/20 backdrop-blur-sm">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-500 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-laptop-code text-lg sm:text-xl"></i>
+                <!-- 2 -->
+                <div class="bg-white text-gray-800 p-6 rounded-2xl shadow-lg border-t-8 border-blue-200 flex flex-col items-center text-center">
+                    <h3 class="text-brand-navy font-bold text-lg sm:text-xl mb-4 leading-snug">AI×プログラミング</h3>
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-laptop-code text-2xl text-brand-navy"></i>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">AI×プログラミング</h3>
-                    <p class="text-xs sm:text-sm text-cyan-50 leading-relaxed">
+                    <p class="text-sm font-medium leading-relaxed">
                         難しい知識がなくても大丈夫！Googleのサービスや最新のAIを積極的に利用して、地域の課題を解決するDX（デジタル化）ツールを自分たちで実際に作ってみます。
                     </p>
                 </div>
-                <!-- Point 3 -->
-                <div class="bg-white/10 p-5 sm:p-6 rounded-2xl border border-white/20 backdrop-blur-sm">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-500 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-level-up-alt text-lg sm:text-xl"></i>
+                <!-- 3 -->
+                <div class="bg-white text-gray-800 p-6 rounded-2xl shadow-lg border-t-8 border-yellow-200 flex flex-col items-center text-center">
+                    <h3 class="text-orange-500 font-bold text-lg sm:text-xl mb-4 leading-snug">進学・就職の<br>強力な武器に</h3>
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-level-up-alt text-2xl text-orange-500"></i>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">進学・就職の強力な武器に</h3>
-                    <p class="text-xs sm:text-sm text-cyan-50 leading-relaxed">
+                    <p class="text-sm font-medium leading-relaxed">
                         ここで得た「最新技術に触れた経験」「課題を解決した経験」は、大学進学の推薦入試や、卒業後の就職活動において、あなただけの強力なアピールポイント（ガクチカ）になります！
                     </p>
                 </div>
@@ -190,168 +137,133 @@
         </div>
     </section>
 
-    <!-- ===== プログラムセクション ===== -->
-    <section class="py-12 sm:py-20 bg-white relative z-10 border-t-4 border-dashed border-gray-200">
-        <div class="max-w-6xl mx-auto px-4">
-            
-            <div class="flex flex-col sm:flex-row items-start sm:items-end mb-8 sm:mb-12 border-b-2 border-brand-lightblue pb-2 w-full sm:w-auto sm:inline-block">
-                <div class="flex items-end">
-                    <span class="font-title text-5xl sm:text-6xl font-black text-brand-lightblue italic mr-2 sm:mr-3 leading-none">1</span>
-                    <div>
-                        <h2 class="font-title text-2xl sm:text-3xl font-bold text-brand-blue tracking-wider">PROGRAM</h2>
-                        <p class="text-xs sm:text-sm font-bold text-gray-500">プログラムの内容</p>
-                    </div>
-                </div>
-            </div>
+    <!-- ===== セクション3: イベントの流れ ===== -->
+    <section class="py-12 sm:py-16 px-4 bg-white relative">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-brand-navy font-bold text-xl sm:text-2xl md:text-3xl mb-8 sm:mb-12 flex items-center border-l-4 border-brand-green pl-3 sm:pl-4">
+                <i class="fas fa-clipboard-list mr-3 text-brand-green"></i> PROGRAM
+            </h2>
+            <p class="text-sm font-bold text-gray-500 mb-8 ml-4">プログラムの内容</p>
 
-            <!-- 六角形グリッド -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4 lg:gap-2 justify-items-center mt-6 sm:mt-10">
-                
-                <!-- プログラム 1 -->
-                <div class="hex-wrapper w-56 h-[250px] sm:w-64 sm:h-[280px]">
-                    <div class="w-full h-full bg-cyan-400 hex-shape relative flex items-center justify-center p-1">
-                        <div class="w-full h-full bg-cyan-50 hex-shape flex flex-col items-center justify-center p-4 sm:p-6 text-center">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-lg flex items-center justify-center mb-3 sm:mb-4 shadow-sm border-2 border-cyan-200">
-                                <i class="fas fa-code text-2xl sm:text-3xl text-cyan-500"></i>
-                            </div>
-                            <h3 class="font-bold text-base sm:text-lg text-brand-blue mb-1">プログラミング<br>体験</h3>
-                            <p class="text-[10px] sm:text-xs text-brand-blue/80 px-2">AIを使って地域課題を解決する便利ツールを作ってみよう！</p>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+                <!-- STEP 1 -->
+                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 shadow-sm relative pt-10">
+                    <div class="absolute top-0 left-5 -translate-y-1/2 bg-brand-navy text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">1</div>
+                    <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-3 leading-tight min-h-[3rem]">プログラミング<br>体験</h3>
+                    <div class="text-center mb-3 text-3xl text-brand-green"><i class="fas fa-code"></i></div>
+                    <p class="text-[13px] sm:text-sm text-gray-600 leading-relaxed">AIを使って地域課題を解決する便利ツールを作ってみよう！</p>
                 </div>
 
-                <!-- プログラム 2 -->
-                <div class="hex-wrapper w-56 h-[250px] sm:w-64 sm:h-[280px] lg:mt-16">
-                    <div class="w-full h-full bg-green-400 hex-shape relative flex items-center justify-center p-1">
-                        <div class="w-full h-full bg-green-50 hex-shape flex flex-col items-center justify-center p-4 sm:p-6 text-center">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm border-2 border-green-200">
-                                <i class="fas fa-robot text-2xl sm:text-3xl text-green-500"></i>
-                            </div>
-                            <h3 class="font-bold text-base sm:text-lg text-brand-blue mb-1">地域の課題解決<br>ワーク with AI</h3>
-                            <p class="text-[10px] sm:text-xs text-brand-blue/80 px-2">我々は何を目指すか？そのために何をするか？話し合おう！</p>
-                        </div>
-                    </div>
+                <!-- STEP 2 -->
+                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 shadow-sm relative pt-10 mt-4 md:mt-0 lg:mt-0">
+                    <div class="absolute top-0 left-5 -translate-y-1/2 bg-brand-navy text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">2</div>
+                    <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-3 leading-tight min-h-[3rem]">地域の課題解決<br>ワーク with AI</h3>
+                    <div class="text-center mb-3 text-3xl text-brand-navy"><i class="fas fa-robot"></i></div>
+                    <p class="text-[13px] sm:text-sm text-gray-600 leading-relaxed">我々は何を目指すか？そのために何をするか？話し合おう！</p>
                 </div>
 
-                <!-- プログラム 3 -->
-                <div class="hex-wrapper w-56 h-[250px] sm:w-64 sm:h-[280px]">
-                    <div class="w-full h-full bg-yellow-400 hex-shape relative flex items-center justify-center p-1">
-                        <div class="w-full h-full bg-yellow-50 hex-shape flex flex-col items-center justify-center p-4 sm:p-6 text-center">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-lg flex items-center justify-center mb-3 sm:mb-4 shadow-sm border-2 border-yellow-200">
-                                <i class="fas fa-chart-line text-2xl sm:text-3xl text-yellow-500"></i>
-                            </div>
-                            <h3 class="font-bold text-base sm:text-lg text-brand-blue mb-1">「学びのリーダー」<br>プロジェクト説明</h3>
-                            <p class="text-[10px] sm:text-xs text-brand-blue/80 px-2">小中学生への指導やサイエンスフェスタでの発表など</p>
-                        </div>
-                    </div>
+                <!-- STEP 3 -->
+                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 shadow-sm relative pt-10 mt-4 md:mt-0 lg:mt-0">
+                    <div class="absolute top-0 left-5 -translate-y-1/2 bg-brand-navy text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">3</div>
+                    <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-3 leading-tight min-h-[3rem]">「学びのリーダー」<br>プロジェクト説明</h3>
+                    <div class="text-center mb-3 text-3xl text-orange-400"><i class="fas fa-chart-line"></i></div>
+                    <p class="text-[13px] sm:text-sm text-gray-600 leading-relaxed">小中学生への指導やサイエンスフェスタでの発表など今後の展望</p>
                 </div>
 
-                <!-- プログラム 4 -->
-                <div class="hex-wrapper w-56 h-[250px] sm:w-64 sm:h-[280px] lg:mt-16">
-                    <div class="w-full h-full bg-teal-400 hex-shape relative flex items-center justify-center p-1">
-                        <div class="w-full h-full bg-teal-50 hex-shape flex flex-col items-center justify-center p-4 sm:p-6 text-center">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm border-2 border-teal-200">
-                                <i class="fas fa-comments text-2xl sm:text-3xl text-teal-500"></i>
-                            </div>
-                            <h3 class="font-bold text-base sm:text-lg text-brand-blue leading-tight mb-2">活動<br>ネーミング会議</h3>
-                            <p class="text-[10px] sm:text-xs font-bold text-teal-700 px-2">この新しい集まり・場所の<br>「名前」を決めよう！</p>
-                        </div>
-                    </div>
+                <!-- STEP 4 -->
+                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 shadow-sm relative pt-10 mt-4 md:mt-0 lg:mt-0">
+                    <div class="absolute top-0 left-5 -translate-y-1/2 bg-brand-navy text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">4</div>
+                    <h3 class="font-bold text-brand-navy text-base sm:text-lg mb-3 leading-tight min-h-[3rem]">活動<br>ネーミング会議</h3>
+                    <div class="text-center mb-3 text-3xl text-yellow-500"><i class="fas fa-comments"></i></div>
+                    <p class="text-[13px] sm:text-sm text-gray-600 leading-relaxed">この新しい集まり・場所の「名前」をみんなで決めよう！</p>
                 </div>
-
-            </div>
-            
-            <!-- テクノロジー風のアクセント -->
-            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mt-12 sm:mt-16 text-gray-300">
-                <div class="flex items-center border border-gray-200 rounded-full px-3 py-1 text-xs sm:text-sm"><i class="fas fa-code mr-2 text-cyan-400"></i> CODE</div>
-                <div class="flex items-center border border-gray-200 rounded-full px-3 py-1 text-xs sm:text-sm"><i class="fas fa-brain mr-2 text-green-400"></i> AI</div>
-                <div class="flex items-center border border-gray-200 rounded-full px-3 py-1 text-xs sm:text-sm"><i class="fas fa-rocket mr-2 text-yellow-400"></i> FUTURE</div>
             </div>
         </div>
     </section>
 
 
-    <!-- ===== インフォメーションセクション ===== -->
-    <section class="py-12 sm:py-16 bg-gradient-to-b from-gray-50 to-gray-100 relative z-10 overflow-hidden">
-        <!-- 背景の大きな文字装飾 -->
-        <div class="absolute top-0 right-[-5%] sm:right-[-10%] text-[8rem] sm:text-[10rem] md:text-[15rem] font-title font-black text-gray-200/50 leading-none pointer-events-none select-none z-0">
-            2026
-        </div>
-
-        <div class="max-w-4xl mx-auto px-4 relative z-10">
-            <div class="bg-white p-6 sm:p-8 md:p-12 rounded-3xl shadow-2xl border-l-8 border-brand-lightblue relative">
-                
-                <h2 class="font-title text-xl sm:text-2xl font-bold text-gray-400 mb-2 tracking-widest">DATE</h2>
-                
-                <div class="flex flex-col md:flex-row md:items-baseline border-b-2 border-gray-100 pb-4 sm:pb-6 mb-4 sm:mb-6">
-                    <div class="font-title font-black text-[2.75rem] sm:text-6xl md:text-8xl text-brand-blue tracking-tighter leading-none">
-                        2026.05.29
-                    </div>
-                    <div class="font-title font-bold text-2xl sm:text-3xl md:text-5xl text-brand-green ml-1 sm:ml-2 md:ml-4 mt-2 md:mt-0">
-                        FRI
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 sm:gap-6">
-                    <div class="font-title font-bold text-2xl sm:text-4xl text-gray-700 flex items-center">
-                        <i class="far fa-clock text-brand-yellow mr-3 sm:mr-4 text-2xl sm:text-3xl"></i>
-                        16:30 - 18:30
-                    </div>
-                    
-                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 w-full md:flex-1 md:w-auto">
-                        <p class="font-title text-xs sm:text-sm font-bold text-gray-400 mb-1">PLACE</p>
-                        <p class="text-xl sm:text-2xl font-bold text-brand-blue flex items-start sm:items-center">
-                            <i class="fas fa-map-marker-alt text-brand-lightblue mr-3 mt-1 sm:mt-0"></i>
-                            <span>サイエンスヒルズこまつ</span>
-                        </p>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-2 ml-7">石川県小松市こまつの杜2<br>（または学校内の多目的スペース）</p>
-                    </div>
-                </div>
-
-                <!-- ターゲット・定員情報 -->
-                <div class="mt-6 sm:mt-8 border-t-2 border-dashed border-gray-200 pt-5 sm:pt-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4">
-                        <div>
-                            <p class="text-xs sm:text-sm font-bold text-gray-400 mb-2">TARGET / 対象</p>
-                            <ul class="text-brand-blue font-bold text-xs sm:text-sm grid grid-cols-2 gap-y-1 sm:gap-y-2">
-                                <li>・県立小松高校</li>
-                                <li>・県立小松商業高校</li>
-                                <li>・県立小松工業高校</li>
-                                <li>・県立明峰高校</li>
-                                <li>・小松市立高校</li>
-                                <li>・私立大谷高校</li>
-                            </ul>
+    <!-- ===== セクション4: インフォメーション ===== -->
+    <section class="py-12 sm:py-16 bg-gray-50 px-4 border-t border-gray-200">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
+            
+            <!-- 左側：開催概要 -->
+            <div class="lg:col-span-3 bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="flex items-center gap-3 mb-4 sm:mb-6">
+                    <div class="bg-brand-green text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-sm">日時</div>
+                    <div>
+                        <p class="font-title font-bold text-gray-400 text-xs sm:text-sm leading-none">2026.</p>
+                        <div class="flex items-baseline">
+                            <span class="font-title font-black text-4xl sm:text-5xl md:text-6xl text-gray-800 tracking-tighter">5.29</span>
+                            <span class="bg-brand-green text-white font-bold text-xs sm:text-sm px-2 py-1 rounded ml-2">FRI</span>
                         </div>
-                        <div class="border-t border-gray-100 pt-4 sm:border-t-0 sm:pt-0">
-                            <p class="text-xs sm:text-sm font-bold text-gray-400 mb-2">CAPACITY / 定員</p>
-                            <div class="flex items-baseline">
-                                <p class="text-3xl sm:text-4xl font-black text-brand-blue leading-none">20</p>
-                                <span class="text-base sm:text-lg font-bold ml-1 text-brand-blue">名</span>
-                            </div>
-                            <p class="text-[10px] sm:text-xs text-red-500 mt-1 font-bold">※先着順となりますのでお早めに！</p>
+                        <p class="font-bold text-lg sm:text-xl md:text-2xl mt-1 text-gray-800">16:30〜18:30 <span class="text-xs sm:text-sm text-gray-500 font-normal">(受付 16:00〜)</span></p>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-100 my-4 sm:my-6"></div>
+
+                <div class="flex items-start gap-3 mb-4 sm:mb-6">
+                    <div class="bg-brand-green text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-sm flex-shrink-0">場所</div>
+                    <div class="pt-1">
+                        <p class="font-bold text-base sm:text-lg text-gray-800">サイエンスヒルズこまつ</p>
+                        <p class="text-xs sm:text-sm text-gray-500">(小松市こまつの杜2番地) または学校内の多目的スペース</p>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-100 my-4 sm:my-6"></div>
+
+                <div class="flex items-start gap-3">
+                    <div class="bg-brand-green text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-sm sm:text-base font-bold shadow-sm flex-shrink-0">対象</div>
+                    <div class="pt-1 w-full">
+                        <p class="font-bold text-base sm:text-lg text-gray-800 mb-1">小松市内 高校生限定！ <span class="inline-block bg-gray-100 text-brand-navy text-[10px] sm:text-xs px-2 py-0.5 rounded ml-2 align-middle border border-gray-200">定員20名</span></p>
+                        <p class="text-[11px] sm:text-xs text-gray-500 mb-2">※先着順となりますのでお早めに！</p>
+                        <div class="flex flex-wrap gap-1 sm:gap-1.5">
+                            <span class="text-[10px] bg-gray-50 text-gray-600 px-2 py-0.5 rounded border border-gray-200">県立小松高校</span>
+                            <span class="text-[10px] bg-gray-50 text-gray-600 px-2 py-0.5 rounded border border-gray-200">県立小松商業高校</span>
+                            <span class="text-[10px] bg-gray-50 text-gray-600 px-2 py-0.5 rounded border border-gray-200">県立小松工業高校</span>
+                            <span class="text-[10px] bg-gray-50 text-gray-600 px-2 py-0.5 rounded border border-gray-200">県立明峰高校</span>
+                            <span class="text-[10px] bg-gray-50 text-gray-600 px-2 py-0.5 rounded border border-gray-200">小松市立高校</span>
+                            <span class="text-[10px] bg-gray-50 text-gray-600 px-2 py-0.5 rounded border border-gray-200">私立大谷高校</span>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- 右側：参加するメリット -->
+            <div class="lg:col-span-2 bg-yellow-50 rounded-2xl p-5 sm:p-6 border border-yellow-200 shadow-sm relative overflow-hidden flex items-center justify-center text-center">
+                <div class="absolute -bottom-4 -right-4 text-6xl text-yellow-200 opacity-50"><i class="fas fa-lightbulb"></i></div>
+                <div class="relative z-10">
+                    <h3 class="text-xl sm:text-2xl font-bold text-brand-navy mb-4 leading-tight">就職も進学も、<br>君の強みに！</h3>
+                    <p class="text-sm sm:text-base font-bold text-gray-800">
+                        AIと創る未体験の<br>ワクワクをその手に！
+                    </p>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- ===== フッター / エントリー ===== -->
-    <footer id="apply" class="bg-brand-blue text-white py-12 sm:py-16 text-center relative overflow-hidden">
-        <!-- 幾何学背景 -->
-        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 30px 30px;"></div>
-        
-        <div class="relative z-10 max-w-3xl mx-auto px-4">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">未来を創る準備はできた？</h2>
-            <p class="mb-8 sm:mb-10 text-sm sm:text-base text-cyan-100">募集人数は【20名】です。<br class="block sm:hidden">定員になり次第締め切りとなります。</p>
+    <footer id="apply" class="bg-brand-navy text-white pt-16 pb-12 text-center relative overflow-hidden px-4">
+        <div class="relative z-10 max-w-3xl mx-auto">
             
-            <a href="https://forms.gle/HnDCpmkpuYPhKRBXA" target="_blank" class="w-full sm:w-auto px-6 py-4 sm:px-12 sm:py-5 font-bold text-brand-blue bg-white rounded-full text-lg sm:text-xl shadow-lg hover:bg-cyan-50 hover:scale-105 transition-all duration-300 ring-4 ring-white/30 inline-block">
-                イベントに申し込む (無料)
-            </a>
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 leading-relaxed">
+                未来を創る準備はできた？
+            </h2>
+            <p class="mb-8 sm:mb-10 text-xs sm:text-sm text-gray-300">定員（20名）になり次第締め切りとなります。</p>
             
-            <div class="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-white/20 text-xs sm:text-sm text-gray-400">
-                <p>主催: 小松市 / プログラミング＆AI体験プロジェクト実行委員会</p>
-                <p class="mt-2 font-title">&copy; 2026 PROJECT LAUNCH EVENT. All Rights Reserved.</p>
+            <!-- 申込みボタン（WEBサイトで応募） -->
+            <div class="bg-white p-4 sm:p-6 rounded-2xl shadow-xl max-w-md mx-auto mb-10 border border-blue-800">
+                <p class="text-brand-navy font-bold mb-4 text-sm sm:text-base">WEBサイトで応募</p>
+                <a href="https://forms.gle/HnDCpmkpuYPhKRBXA" target="_blank" class="block w-full py-3 sm:py-4 font-bold text-white bg-brand-green rounded-full text-base sm:text-lg hover:bg-green-500 transition-colors shadow-md">
+                    イベントに申し込む (無料)
+                </a>
+                <p class="text-[10px] sm:text-xs text-gray-500 mt-3">※応募はWEBサイト内の専用フォームから受け付けています。</p>
+            </div>
+            
+            <div class="pt-6 sm:pt-8 border-t border-white/20 text-[10px] sm:text-xs text-gray-400 space-y-2">
+                <p>【主催】 小松市 / プログラミング＆AI体験プロジェクト実行委員会</p>
+                <p class="mt-4 font-title">&copy; 2026 PROJECT LAUNCH EVENT. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
